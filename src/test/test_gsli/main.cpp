@@ -34,8 +34,7 @@ int main(int argc, const char* argv[])
 
     try
     {
-        //TODO
-        //test_gsli().test();
+        test_gsli().test();
         test_gsli_perf().test();
     }
     catch(std::exception& ex)
