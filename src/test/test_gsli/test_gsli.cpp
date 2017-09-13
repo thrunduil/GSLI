@@ -1811,6 +1811,16 @@ double test_gsli::get_prob_special()
 
 void test_gsli::test()
 {   
+    {
+        gsli_double a   = sli::exp(1.0e23);
+        gsli_double b   = sli::exp(1.3e23);
+        gsli_double c   = a*b;
+        gsli_double d   = log_abs(c);
+
+        std::cout << c << "\n";
+        std::cout << c.get_value() << "\n";
+        std::cout << d << "\n";
+    }
     int n_rep_func  = 10000000;
 
     //using config_type = config<float, 3>;
