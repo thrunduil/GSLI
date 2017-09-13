@@ -17,3 +17,7 @@
 1. GSLI can be build from source using Visual Studio solution. 
 2. Project files must be modified in order to set up paths to
     required external libraries
+
+
+Copyright (C) 2017  Pawe³ Kowal
+email: thrunduil@gmail.com
