@@ -1,0 +1,109 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{0064c808-7e8c-41a2-8a4a-87dcde2a2467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\src">
+      <UniqueIdentifier>{3100fd9d-7772-4e0f-955a-819a337ebdd2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\include">
+      <UniqueIdentifier>{51cd097f-32c3-4dd4-bc17-0ce4e74aad05}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\include\gsli">
+      <UniqueIdentifier>{27646d48-e36a-4d96-8e26-e63e6d3fe791}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\include\gsli\details">
+      <UniqueIdentifier>{54333987-3a0b-4d56-9448-e2c41b795698}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\other">
+      <UniqueIdentifier>{da0b1b79-6b5d-4cdb-ac08-60bc631000e4}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\gsli\include\gsli\details\gsli_constants.h">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\details\gsli_functions_rep.h">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\details\gsli_rep.h">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\config.h">
+      <Filter>Source Files\include\gsli</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\gsli.h">
+      <Filter>Source Files\include\gsli</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\gsli_double.h">
+      <Filter>Source Files\include\gsli</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\gsli_error.h">
+      <Filter>Source Files\include\gsli</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\gsli_functions.h">
+      <Filter>Source Files\include\gsli</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\gsli\include\gsli\details\gsli_constants_impl.h">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="..\..\src\gsli\include\gsli\details\gsli_double.inl">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </None>
+    <None Include="..\..\src\gsli\include\gsli\details\gsli_functions.inl">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </None>
+    <None Include="..\..\src\gsli\include\gsli\details\gsli_rep.inl">
+      <Filter>Source Files\include\gsli\details</Filter>
+    </None>
+    <None Include="..\..\LICENSE">
+      <Filter>Source Files\other</Filter>
+    </None>
+    <None Include="..\..\README.md">
+      <Filter>Source Files\other</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\gsli\gsli_compare.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_double.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_error_functions.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_exp_log_pow.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_functions.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_functions_basic.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_mult_div.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_plus_minus.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_rep.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_error.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\gsli\gsli_constants.cpp">
+      <Filter>Source Files\src</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="..\..\INSTALL.txt">
+      <Filter>Source Files\other</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
