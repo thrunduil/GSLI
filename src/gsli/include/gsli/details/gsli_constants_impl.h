@@ -50,10 +50,10 @@ struct test_max_exp_1
     static constexpr double log_2 = 0.69314718055994530941723212145818;
 
     // value = true, if Exp_1 is large enough
-    static const bool value     = eval_2_pow_k(Exp_1 - Prec) > log_2*(Prec+1);
+    static const bool value     = eval_2_pow_k(Exp_1 - Prec) > log_2*(Prec+2);
 
     // test_next = true, if Exp_1 + 1 is large enough
-    static const bool test_next = eval_2_pow_k(Exp_1 - Prec + 1) > log_2*(Prec+1);
+    static const bool test_next = eval_2_pow_k(Exp_1 - Prec + 1) > log_2*(Prec+2);
 
     // next_best = true, if next exponent satisfies contraint
     static const bool next_best = value == false && test_next == true;
@@ -81,13 +81,15 @@ struct select_max_exp_1<false, Prec, Val>
 // find smallest exponent of the largest index on level 1, that guaranties,
 // that addition on level 2 is trivial;
 // we are looking for the smallest index px = 2^Val of a level 1 number x = 
-// phi(1,px), such that for any number y, 0 <= y < x: y/x < eps/2; 
+// phi(1,px), such that for any number y, 0 <= y < x: y/x < eps/4; 
 // then x + z ~ x for any z, such that |z| < |x|; also x + z ~ z for any z 
-// satisying |x| < |z|; y/x < eps/2 => exp(-eps(px)) < 2^(-Prec-1);
-// we have eps(px) = 2^(Val - Prec), thus eps(px) > log(2) * (Prec+1) and
-// 2^(Val - Prec) > log(2) * (Prec+1);
-// then x + x = z, where z = phi(1, px + log[2]); since log[2] < eps(px)/2,
+// satisying |x| < |z|; y/x < eps/4 => exp(-eps(px)) < 2^(-Prec-2);
+// we have eps(px) = 2^(Val - Prec), thus eps(px) > log(2) * (Prec+2) and
+// 2^(Val - Prec) > log(2) * (Prec+2);
+// then x + x = z, where z = phi(1, px + log[2]); since log[2] < eps(px)/4,
 // px + log[2] ~ px and x + x ~ x.
+// (condition y/x < eps/4 guarantees, that (x+prev(x))/2 < x +- y < (z+next(x))/2
+// and x +- y must be rounded to x) 
 template<int Prec, int Val = Prec>
 struct eval_max_exp_1
 {

@@ -43,16 +43,16 @@ gsli_rep eval_plus::eval_sli_float(const gsli_rep& rep_p, const gsli_rep& rep_q)
         {
             // lev_p <= -2 and |ind_p| < |ind_q|
             // then |p/q| = phi(2, ind_p)^-1/ind_q <= MAX_0/phi(2, ind_p) 
-            //            < MAX_0/phi(1, MAX_1) < eps/2, by definition of MAX_1
+            //            < MAX_0/phi(1, MAX_1) < eps/4, by definition of MAX_1
             // thus p + q ~ p
 
             return rep_q;
         }
 
-        // addition is trivial when |p/q| < eps/2, i.e. 2*MIN_0/eps*exp[ind_p-1] <q
-        // sufficient condition is q > 2/M0/eps
+        // addition is trivial when |p/q| < eps/4, i.e. 4*MIN_0/eps*exp[ind_p-1] < q
+        // sufficient condition is q > 4/M0/eps
 
-        if (rep_q.index() > config_type::two_min_0_div_eps)
+        if (rep_q.index() > config_type::four_min_0_div_eps)
             return rep_q;
 
         // this is a small number; if conversion to double underflows,
@@ -85,7 +85,7 @@ gsli_rep eval_plus::eval_sli_float(const gsli_rep& rep_p, const gsli_rep& rep_q)
                     * std::exp(config_type::min_index_1 - ind_p);
         double z    = ind_p + std::log(1.0 + w);
 
-        // result cannot be on level 2, since log(2)/MAX_1 < eps/2
+        // result cannot be on level 2, since log(2)/MAX_1 < eps/4
         return gsli_rep(1, z, rep_p.sign_index(), gsli_rep::inexact());
     }
     else
@@ -132,7 +132,7 @@ gsli_rep eval_plus::eval_sli_sli(const gsli_rep& rep_p, const gsli_rep& rep_q)
     if (lev_q > 1)
     {
         // lev_q <= -2, lev_p = -1, 0, 1; 
-        // then |q/p| < phi(1, MAX_1-eps)/phi(1, MAX_1) < eps/2, by definition of MAX_1
+        // then |q/p| < phi(1, MAX_1-eps)/phi(1, MAX_1) < eps/4, by definition of MAX_1
         // thus p + q ~ p
 
         gsli_assert(rep_q.level() < 0, "error in eval_plus");
@@ -147,13 +147,13 @@ gsli_rep eval_plus::eval_sli_sli(const gsli_rep& rep_p, const gsli_rep& rep_q)
         gsli_assert(sign_lev_p == false && sign_lev_q == true, 
                     "error in gsli plus");
 
-        // p has level 1 and q has level -1; addition is trivial if |q/p| < eps/2
+        // p has level 1 and q has level -1; addition is trivial if |q/p| < eps/4
 
         using config                    = gsli_double::config_type;
 
-        // addition is trivial if |q/p| < 1/MAX_0^2 <= eps/2
+        // addition is trivial if |q/p| < 1/MAX_0^2 <= eps/4
         static const bool is_trivial    = 1.0/(config::max_index_0 * config::max_index_0)
-                                        < config::eps / 2;
+                                        < config::eps / 4;
 
         // current configuration implies, that every large-small case is trivial
         static_assert(is_trivial == true, "large-small case in eval_plus not implemented");
@@ -173,7 +173,7 @@ gsli_rep eval_plus::eval_sli_sli(const gsli_rep& rep_p, const gsli_rep& rep_q)
         {
             double z    = ind_p + std::log(1 + std::exp(ind_q - ind_p));
 
-            // result cannot be level 2, since log(2)/MAX_1 < eps/2
+            // result cannot be level 2, since log(2)/MAX_1 < eps/4
             gsli_assert(z <= config_type::max_index_1, 
                   "unexpected level 2 index in eval_plus");
 

@@ -113,11 +113,11 @@ struct config
     // minimum index that can be represented on levels 1-k
     static constexpr double min_index_1r = (1.0 + eps) / details::eval_2_pow_k(min_index_exp_1);
 
-    // if true, then log[max_index_0] < eps(max_index_0)/2
-    //  = 2^(max_index_exp_0 - precision - 1); sufficient condition is:
-    // log(2) * max_index_exp_0 < 2^(max_index_exp_0 - precision - 1)
+    // if true, then log[max_index_0] < eps(max_index_0)/4
+    //  = 2^(max_index_exp_0 - precision - 2); sufficient condition is:
+    // log(2) * max_index_exp_0 < 2^(max_index_exp_0 - precision - 2)
     static const bool has_large_level_0 = log_2 * max_index_exp_0 
-                                        < details::eval_2_pow_k(max_index_exp_0 - precision - 1);
+                                        < details::eval_2_pow_k(max_index_exp_0 - precision - 2);
 
     // square root maximum index that can be represented on level 0
     // upper bound is good enough
@@ -129,8 +129,8 @@ struct config
     //----------------------------------------------------------
     //                  tests of parameters
     //----------------------------------------------------------
-    // addition is trivial on level 2 if exp(eps(2^max_index_exp_1)) >= 1/eps;
-    // i.e. when 2^(max_index_exp_1 - precision) >= log(2) * precision
+    // addition is trivial on level 2 if exp(-eps(2^max_index_exp_1)) <= eps/4;
+    // i.e. when 2^(max_index_exp_1 - precision - 2) >= log(2) * precision
     static_assert(details::test_max_exp_1<precision, max_index_exp_1>::value == true, 
             "max_index_exp_1 too small, addition is not trivial on level 2");
 
@@ -155,8 +155,8 @@ struct config
     // equal to log(max_index_1) - min_index_1
     static double   log_max_index_1_m;
 
-    // equal to 2 * min_index_0 / eps
-    static double   two_min_0_div_eps;
+    // equal to 4 * min_index_0 / eps
+    static double   four_min_0_div_eps;
 
     // equal to sqrt(log(max_index_0))
     static double   sqrt_log_max_index_0;
@@ -190,7 +190,7 @@ template<class T, int Max_level>
 double config<T, Max_level>::log_max_index_1_m = std::log(max_index_1) - min_index_1;
 
 template<class T, int Max_level>
-double config<T, Max_level>::two_min_0_div_eps = 2.0 * min_index_0 / eps;
+double config<T, Max_level>::four_min_0_div_eps = 4.0 * min_index_0 / eps;
 
 template<class T, int Max_level>
 double config<T, Max_level>::sqrt_log_max_index_0 = std::sqrt(log_max_index_0);

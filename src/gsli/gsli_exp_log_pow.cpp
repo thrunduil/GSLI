@@ -107,7 +107,7 @@ gsli_rep sli::exp(const gsli_rep& rep)
 
     gsli_assert(config_type::has_large_level_0 == true, "has_large_level_0 required");
 
-    // in this case log[MAX_0] - off < log[MAX_0] < eps(MAX_0)/2 < eps(|v|)/2; thus
+    // in this case log[MAX_0] - off < log[MAX_0] < eps(MAX_0)/4 < eps(|v|)/4; thus
     // psi(level_z - 1, index_z) = |v|
     // M1 * exp[psi(level_z - 2, index_z)-1] = M0 * exp(psi(level_v - 1, index_v) - 1)
     // psi(level_z - 2, index_z) = log[M0/M1] + psi(level_v - 1, index_v)
@@ -115,7 +115,7 @@ gsli_rep sli::exp(const gsli_rep& rep)
     if (rep.level() >= 2)
     {
         // in this case psi(level_v - 1, index_v) > MAX_0 and again 
-        // log[M0/M1] < eps(psi(level_v - 1, index_v)) / 2 => 
+        // log[M0/M1] < eps(psi(level_v - 1, index_v)) / 4 => 
         // log[M0/M1] + psi(level_v - 1, index_v) ~ psi(level_v - 1, index_v), thus
         // psi(level_z - 2, index_z) = psi(level_v - 1, index_v)
 
@@ -178,7 +178,7 @@ gsli_rep sli::log_abs(const gsli_rep& rep)
 
         // res > min_0
         // if has_large_level_0, then log_max0_off <= log[max_0] 
-        //      < eps(max_0)/2 , and log_max0_off + max_0 ~ max_0,
+        //      < eps(max_0)/4 , and log_max0_off + max_0 ~ max_0,
         // thus res <= max_0
 
         gsli_assert(config_type::has_large_level_0 == true, "trivial mult20 required");
@@ -191,7 +191,7 @@ gsli_rep sli::log_abs(const gsli_rep& rep)
 
     gsli_assert(config_type::has_large_level_0 == true, "has_large_level_0 required");
 
-    // in this case log[M0] - off < eps(MAX_0)/2 < eps(psi(lev-1, ind))/2; thus
+    // in this case log[M0] - off < eps(MAX_0)/4 < eps(psi(lev-1, ind))/4; thus
     // log[M0] - off + psi(lev-1, ind) ~ psi(lev-1, ind) and
     // phi(lev_z, ind_z) ~ psi(lev-1, ind)
 
@@ -200,7 +200,7 @@ gsli_rep sli::log_abs(const gsli_rep& rep)
 
     if (lev >= 3)
     {
-        // in this case log[M0/M1] < eps(M0)/2 < eps(psi(lev-2, ind)) / 2 and
+        // in this case log[M0/M1] < eps(M0)/4 < eps(psi(lev-2, ind)) / 4 and
         // psi(lev-2, ind) - log[M0/M1] ~ psi(lev-2, ind), thus
         // psi(lev_z-1, ind_z) ~ psi(lev-2, ind)
         return gsli_rep(int(lev) - 1, rep.index(), sign_lev);

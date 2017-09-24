@@ -218,7 +218,7 @@ gsli_rep eval_mult::eval_sli_sli(const gsli_rep& rep_p, const gsli_rep& rep_q)
                 
                 // now z > MIN_1 (rounding to z <= MIN_1 not possible since 
                 // eps(log_max0) >= eps(MIN_1)) 
-                //  => z - log_max0 +  MIN_1 > MIN_1 + exp(MIN_1) > MIN_1
+                //  => z - log_max0 +  MIN_1 > MIN_1 + eps(MIN_1) > MIN_1
                 // also z <= MAX_1
                 return gsli_rep(sign_lev_p ? -1 : 1, z, sign_ind);
             }
