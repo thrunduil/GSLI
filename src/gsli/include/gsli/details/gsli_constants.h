@@ -1,4 +1,5 @@
 /* 
+ *  Morfa programming language.
  *  This file is a part of GSLI library.
  *
  *  Copyright (c) Pawe³ Kowal 2017

@@ -17,6 +17,8 @@ All implemented operations for small or moderately large numbers are at most 2 -
 corresponding operations for double type. Operations for large numbers are also reasonably fast, only
 one order of magnitude slower than corresponding operations for double type.
 
+This library is a part of the Morfa project. See morfalang.org.
+
 ## Code example
 
 Simple arithmetic operations:
