@@ -45,6 +45,4 @@ performed on Windows using Visual Studio 2015 compiler.
 
 ## Licence
 
-Copyright (C) 2017  Paweł Kowal
-
 This library is published under GPL licence.
