@@ -59,6 +59,9 @@ bool                is_nan(const gsli_double& v);
 // return true if this value represents +Inf of -Int
 bool                is_inf(const gsli_double& v);
 
+// return true if value represents an integer
+bool                is_int(const gsli_double& v);
+
 // classify value
 fptype              fpclassify(const gsli_double& v);
 

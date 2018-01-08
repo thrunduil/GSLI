@@ -291,6 +291,14 @@ inline bool sli::is_regular(const gsli_double& val)
             && val.get_internal_rep() != 0.0;
 };
 
+inline bool sli::is_int(const gsli_double& val)
+{
+    int v_int   = (int)val.get_internal_rep();
+    double v_d  = (double)v_int;
+
+    return v_d == val.get_internal_rep();
+};
+
 inline fptype sli::fpclassify(const gsli_double& v)
 {
     gsli_rep rep;

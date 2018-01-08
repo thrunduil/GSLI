@@ -26,6 +26,7 @@
 namespace sli
 {
 
+
 gsli_double details::inv_general(const gsli_double& v)
 {
     gsli_rep rep;
