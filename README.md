@@ -17,6 +17,8 @@ All implemented operations for small or moderately large numbers are at most 2 -
 corresponding operations for double type. Operations for large numbers are also reasonably fast, only
 one order of magnitude slower than corresponding operations for double type.
 
+This library is a part of the Morfa project. See morfalang.org.
+
 ## Code example
 
 Simple arithmetic operations:
@@ -42,7 +44,5 @@ GSLI library is in release candidate stage. However tests were only
 performed on Windows using Visual Studio 2015 compiler.
 
 ## Licence
-
-Copyright (C) 2017  Paweł Kowal
 
 This library is published under GPL licence.
