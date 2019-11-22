@@ -23,6 +23,8 @@
 #include "gsli/gsli_error.h"
 #include "gsli/details/gsli_functions_rep.h"
 
+#include <iostream>
+
 namespace sli
 {
 

@@ -26,6 +26,7 @@
 #include "gsli/gsli_error.h"
 
 #include <algorithm>
+#include <cmath>
 
 namespace sli { namespace details
 {
